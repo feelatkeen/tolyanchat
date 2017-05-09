@@ -1,0 +1,30 @@
+{
+  "name": "tolyanchat",
+  "version": "1.0.0",
+  "description": "ugarno",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/feelatkeen/tolyanchat.git"
+  },
+  "keywords": [
+    "tolyan",
+    "kek",
+    "chat",
+    "meme",
+    "sockets"
+  ],
+  "author": "feelatkeen",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/feelatkeen/tolyanchat/issues"
+  },
+  "homepage": "https://github.com/feelatkeen/tolyanchat#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "socket.io": "^2.0.1"
+  }
+}
