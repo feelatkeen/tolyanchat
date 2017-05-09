@@ -32,6 +32,16 @@ io.on('connection', function(socket){
 		socket.broadcast.emit('sticker', stickimg);
 		socket.emit('sticker', stickimg);
 	});
+	socket.on('videoname', function(naemm){
+		console.log(naemm + " отправил видео!");
+		socket.broadcast.emit('videoname', naemm);
+		socket.emit('videoname', naemm);
+	});
+	socket.on('videourl', function(videourl){
+		console.log("ссылка на видео " + videourl);
+		socket.broadcast.emit('videourl', videourl);
+		socket.emit('videourl', videourl);
+	});
 	socket.on('disconnect',function(){
 		console.log('мемер ушел...')
 	});
