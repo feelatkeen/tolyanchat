@@ -57,8 +57,8 @@
         .chatmsgs{
           overflow:auto;
           margin:0 auto 0;
-          width:560;
-          height:320;
+          width:600px;
+          height:500px;
           padding:5;
           border:solid 1px black;
           border-radius:5px;
@@ -93,7 +93,7 @@
   </head>
   <body>
     <div class="header">
-      <img src="https://cdn.rawgit.com/feelatkeen/tolyanchat/b66259e9/tlogo.png">
+      <img src="https://psv4.userapi.com/c812630/u320502491/docs/1a3856f79c9c/tlogo.png?extra=pD1Xwoi8TbZ4Bj05XIponNWHtkkcReDEGNSKimgZuPmT6ZMmp6r3JV_FaDwcrxWtoX8nvs21SuddaWfsV56LU07UXukOwqpXxwYKHH5TbNA50TUfsGv8-HMdy4g">
     </div>
     <div id="loginchat">
       <p>Введите имя</p>
@@ -157,6 +157,18 @@
     <p class="joinmsg">Сделано feelatkeen, захощено CTL</p>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.4/socket.io.js"></script>
     <script>
+    var spamcounter = 0;
+    (function checkspam(){
+        	if (spamcounter == 5){
+        		$('.chatmsgs').append($('<p class="wrnmsg">').text("Ты плохо себя вел и поэтому не можешь писать!!!"));
+        		$('#selectstickers').hide();
+        		$('#otpravka').hide();
+        		spamcounter = 0;
+        	}else{
+        		spamcounter = 0;
+        	}
+        	setTimeout(checkspam, 1000);
+    })();
       $('#chat').hide();
       $(function(){
         var socket = io();
@@ -167,6 +179,11 @@
         })
         $('#sendmsg').click(function(){
           socket.emit('chat msg', "[" + $('#naem').val() + "] " + $('#msg').val());
+          if ($('#msg').val() != ''){
+          		socket.emit('chat msg', "[" + $('#naem').val() + "] " + $('#msg').val());
+          		spamcounter = spamcounter+1
+          		console.log(spamcounter)
+          }
           $('#msg').val('');
           return false;
         });
@@ -183,7 +200,11 @@
         })
         $('#msg').keypress(function(e){
           if(e.which == 13){
-            socket.emit('chat msg', "[" + $('#naem').val() + "] " + $('#msg').val());
+          	if ($('#msg').val() != ''){
+          		socket.emit('chat msg', "[" + $('#naem').val() + "] " + $('#msg').val());
+          		spamcounter = spamcounter+1
+          		console.log(spamcounter)
+          	}
             $('#msg').val('');
             return false;
           }
