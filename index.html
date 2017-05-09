@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
@@ -45,6 +46,14 @@
           border-left:10px solid  #004d00;
           border-radius:5px;
         }
+        .wrnmsg{
+          background:  #ff0000;
+          padding-top:10;
+          padding-bottom:10;
+          border-left:10px solid  #4d0000;
+          border-radius:5px;
+          color:white;
+        }
         .chatmsgs{
           overflow:auto;
           margin:0 auto 0;
@@ -84,7 +93,7 @@
   </head>
   <body>
     <div class="header">
-      <img src="https://github.com/feelatkeen/tolyanchat/blob/master/tlogo.png">
+      <img src="https://cdn.rawgit.com/feelatkeen/tolyanchat/b66259e9/tlogo.png">
     </div>
     <div id="loginchat">
       <p>Введите имя</p>
@@ -144,7 +153,8 @@
           </div>
       </div>
     </div>
-    <p>мейлру не бейте стикеры взяты из социальной сети "ВКонтакте"!!!!!</p>
+    <p class="wrnmsg">мейлру не бейте стикеры взяты из социальной сети "ВКонтакте"!!!!!</p>
+    <p class="joinmsg">Сделано feelatkeen, захощено CTL</p>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.4/socket.io.js"></script>
     <script>
       $('#chat').hide();
