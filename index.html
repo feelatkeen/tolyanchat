@@ -1,0 +1,200 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>ТолянЧат</title>
+     <style>
+       .header{
+          text-align:center
+        }
+        .stickers{
+          margin-top:10;
+          display: none;
+        }
+        .stickers button{
+          margin-top:10;
+          background:none;
+          border-style:solid;
+          border-width:0px;
+        }
+        .stickers button img{
+          filter: drop-shadow(-2px 0px 0px white)
+          drop-shadow(0px -2px 0px white)
+          drop-shadow(2px 0px 0px white)
+          drop-shadow(0px 2px 0px white);
+        }
+        #chat{
+          text-align:center;
+        }
+        #otpravka{
+          margin-top:20px;
+        }
+        #loginchat{
+          text-align:center;
+        }
+        .nrmsg{
+          background: #f2f2f2;
+          padding-top:10;
+          padding-bottom:10;
+          border-left:10px solid gray;
+          border-radius:5px;
+        }
+        .joinmsg{
+          background: #ccffcc;
+          padding-top:10;
+          padding-bottom:10;
+          border-left:10px solid  #004d00;
+          border-radius:5px;
+        }
+        .chatmsgs{
+          overflow:auto;
+          margin:0 auto 0;
+          width:560;
+          height:320;
+          padding:5;
+          border:solid 1px black;
+          border-radius:5px;
+        }
+        #selectstickers{
+          display:inline-block;
+          margin-top:10px;
+          background:#e6f0ff;
+          padding:10;
+          border-style:solid;
+          border-color:  #0047b3;
+          border-radius:32px;
+        }
+        #selectstickers:hover{
+          display:inline-block;
+          margin-top:10px;
+          background:#0047b3;
+          padding:10;
+          border-style:solid;
+          border-color:#e6f0ff;
+          border-radius:32px;
+          color:white;
+        }
+        #selectstickers:hover .stickers{
+           display:block;
+        }
+        #loginbutton{
+          margin-top:20;
+        }
+     </style>
+     <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+  </head>
+  <body>
+    <div class="header">
+      <img src="https://psv4.userapi.com/c812630/u320502491/docs/1a3856f79c9c/tlogo.png?extra=pD1Xwoi8TbZ4Bj05XIponNWHtkkcReDEGNSKimgZuPmT6ZMmp6r3JV_FaDwcrxWtoX8nvs21SuddaWfsV56LU07UXukOwqpXxwYKHH5TbNA50TUfsGv8-HMdy4g">
+    </div>
+    <div id="loginchat">
+      <p>Введите имя</p>
+      <br>
+      <input id="naem">
+      <br>
+      <button id="loginbutton">Войти</button>
+    </div>
+    <div id="chat">
+      <div class="chatmsgs">
+      </div>
+      <br>
+      <div id="otpravka">
+        <div id="otpravitmsg" action="">
+          <input id="msg" placeholder="Сообщение" autocomplete="off">
+          <input id="sendmsg" type="button" value="Отправить">
+        </div>
+      </div>
+      <div id="selectstickers">
+        Стикеры
+         <div class="stickers">
+         <input placeholder="Ссылка на изображение" id="mystickurl">
+         <input type="button" value="Свой стикер" id="mystick">
+         <br>
+          <button  id="stick1"><img src="https://vk.com/images/stickers/3839/128.png"></button>
+          <button id="stick2"><img src="https://vk.com/images/stickers/3840/128.png"></button>
+          <button id="stick3"><img src="https://vk.com/images/stickers/3841/128.png"></button>
+          <button id="stick4"><img src="https://vk.com/images/stickers/3842/128.png"></button>
+          <button id="stick5"><img src="https://vk.com/images/stickers/3843/128.png"></button>
+          <button id="stick6"><img src="https://vk.com/images/stickers/3844/128.png"></button>
+          <button id="stick7"><img src="https://vk.com/images/stickers/3845/128.png"></button>
+          <button id="stick8"><img src="https://vk.com/images/stickers/3846/128.png"></button>
+          <button id="stick9"><img src="https://vk.com/images/stickers/3847/128.png"></button>
+          <button id="stick10"><img src="https://vk.com/images/stickers/3848/128.png"></button>
+          <button id="stick11"><img src="https://vk.com/images/stickers/3849/128.png"></button>
+          <button id="stick12"><img src="https://vk.com/images/stickers/3850/128.png"></button>
+          <button id="stick13"><img src="https://vk.com/images/stickers/3851/128.png"></button>
+          <button id="stick14"><img src="https://vk.com/images/stickers/3852/128.png"></button>
+          <button id="stick15"><img src="https://vk.com/images/stickers/3853/128.png"></button>
+          <button id="stick16"><img src="https://vk.com/images/stickers/3854/128.png"></button>
+          <button id="stick17"><img src="https://vk.com/images/stickers/3855/128.png"></button>
+          <button id="stick18"><img src="https://vk.com/images/stickers/3856/128.png"></button>
+          <button id="stick19"><img src="https://vk.com/images/stickers/3857/128.png"></button>
+          <button id="stick20"><img src="https://vk.com/images/stickers/3858/128.png"></button>
+          <button id="stick21"><img src="https://vk.com/images/stickers/3859/128.png"></button>
+          <button id="stick22"><img src="https://vk.com/images/stickers/3860/128.png"></button>
+          <button id="stick23"><img src="https://vk.com/images/stickers/3861/128.png"></button>
+          <button id="stick24"><img src="https://vk.com/images/stickers/3862/128.png"></button>
+          <button id="stick25"><img src="https://vk.com/images/stickers/3863/128.png"></button>
+          <button id="stick26"><img src="https://vk.com/images/stickers/3864/128.png"></button>
+          <button id="stick27"><img src="https://vk.com/images/stickers/3865/128.png"></button>
+          <button id="stick28"><img src="https://vk.com/images/stickers/3866/128.png"></button>
+          <button id="stick29"><img src="https://vk.com/images/stickers/3867/128.png"></button>
+          <button id="stick30"><img src="https://vk.com/images/stickers/3868/128.png"></button>
+          <button id="stick31"><img src="https://vk.com/images/stickers/3869/128.png"></button>
+          <button id="stick32"><img src="https://vk.com/images/stickers/3870/128.png"></button>
+          </div>
+      </div>
+    </div>
+    <p>мейлру не бейте стикеры взяты из социальной сети "ВКонтакте"!!!!!</p>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.4/socket.io.js"></script>
+    <script>
+      $('#chat').hide();
+      $(function(){
+        var socket = io();
+        $('#loginbutton').click(function(){
+          socket.emit('buddyjoined', $('#naem').val())
+          $('#chat').show();
+          $('#loginchat').hide();
+        })
+        $('#sendmsg').click(function(){
+          socket.emit('chat msg', "[" + $('#naem').val() + "] " + $('#msg').val());
+          $('#msg').val('');
+          return false;
+        });
+        $('.stickers button').click(function(){
+          socket.emit('stickname', "[" + $('#naem').val() + "]");
+          var stickid = this.id
+          socket.emit('sticker', $('#' + stickid + ' img').attr('src'));
+          return false;
+        });
+        $('#mystick').click(function(){
+          socket.emit('stickname', "[" + $('#naem').val() + "]");
+          socket.emit('sticker', $('#mystickurl').val());
+          return false;
+        })
+        $('#msg').keypress(function(e){
+          if(e.which == 13){
+            socket.emit('chat msg', "[" + $('#naem').val() + "] " + $('#msg').val());
+            $('#msg').val('');
+            return false;
+          }
+        });
+        socket.on('chat msg', function(msg){
+          $('.chatmsgs').append($('<p class="nrmsg">').text(msg));
+          $('.chatmsgs').scrollTop($('.chatmsgs')[0].scrollHeight);
+        });
+        socket.on('buddyjoined', function(naemm){
+          $('.chatmsgs').append($('<p class="joinmsg">').text(naemm + " зашел!"));
+          $('.chatmsgs').scrollTop($('.chatmsgs').height());
+        });
+        socket.on('stickname', function(naemm){
+          $('.chatmsgs').append($('<p class="nrmsg">').text("Стикер от " + naemm));
+          $('.chatmsgs').scrollTop($('.chatmsgs')[0].scrollHeight);
+        });
+        socket.on('sticker', function(stickimg){
+          $('.chatmsgs').append('<img src=' + stickimg + " height=128 >")
+          $('.chatmsgs').scrollTop($('.chatmsgs')[0].scrollHeight);
+        });
+      });
+    </script>
+  </body>
+</html>
