@@ -114,6 +114,12 @@
           <input id="sendmsg" type="button" value="Отправить">
         </div>
       </div>
+      <br>
+      <div id="videosend">
+    	<img src="https://yt3.ggpht.com/-qS5xjVyESTg/AAAAAAAAAAI/AAAAAAAAAAA/GX-5FKkeTzk/s900-c-k-no-mo-rj-c0xffffff/photo.jpg" height=16>
+      	<input id="videourl" placeholder="ID видео">
+      	<input id="sendvideo" type="button" value="Отправить">
+      </div>
       <div id="selectstickers">
         Стикеры
          <div class="stickers">
@@ -165,6 +171,7 @@
         		$('.chatmsgs').append($('<p class="wrnmsg">').text("Ты плохо себя вел и поэтому не можешь писать!!!"));
         		$('#selectstickers').hide();
         		$('#otpravka').hide();
+        		$('#videosend').hide();
         		spamcounter = 0;
         	}else{
         		spamcounter = 0;
@@ -180,8 +187,7 @@
           $('#loginchat').hide();
         })
         $('#sendmsg').click(function(){
-          socket.emit('chat msg', "[" + $('#naem').val() + "] " + $('#msg').val());
-          if ($('#msg').val() != ''){
+          if ($('#msg').val() != ""){
           		socket.emit('chat msg', "[" + $('#naem').val() + "] " + $('#msg').val());
           		spamcounter = spamcounter+1
           		console.log(spamcounter)
@@ -189,11 +195,17 @@
           $('#msg').val('');
           return false;
         });
+        $('#sendvideo').click(function(){
+        	socket.emit('videoname', "[" + $('#naem').val() + "]" );
+        	socket.emit('videourl', $('#videourl').val());
+        	spamcounter = spamcounter + 1
+        	console.log(spamcounter);
+        });
         $('.stickers button').click(function(){
           socket.emit('stickname', "[" + $('#naem').val() + "]");
           var stickid = this.id
           socket.emit('sticker', $('#' + stickid + ' img').attr('src'));
-          spamcounter = spamcounter+1
+          spamcounter = spamcounter + 1;
           return false;
         });
         $('#mystick').click(function(){
@@ -203,7 +215,7 @@
         })
         $('#msg').keypress(function(e){
           if(e.which == 13){
-          	if ($('#msg').val() != ''){
+          	if ($('#msg').val() != ""){
           		socket.emit('chat msg', "[" + $('#naem').val() + "] " + $('#msg').val());
           		spamcounter = spamcounter+1
           		console.log(spamcounter)
@@ -227,6 +239,12 @@
         socket.on('sticker', function(stickimg){
           $('.chatmsgs').append('<img src=' + stickimg + " height=128 >")
           $('.chatmsgs').scrollTop($('.chatmsgs')[0].scrollHeight);
+        });
+        socket.on('videoname', function(naemm){
+        	$('.chatmsgs').append($('<p class="nrmsg">').text("Видео от " + naemm))
+        });
+        socket.on('videourl', function(videourl){
+        	$('.chatmsgs').append('<div class="nrmsg"><iframe width="256" height="128" src="https://www.youtube.com/embed/' + videourl + '" frameborder="0" allowfullscreen></iframe></div>');
         });
       });
     </script>
